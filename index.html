@@ -21,13 +21,13 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 80px 20px 40px;
+      padding: 60px 20px 30px;
       background: linear-gradient(180deg, #1e1b4b 0%, #0b0f19 100%);
     }
 
     .hero img.profile {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #a855f7;
@@ -38,116 +38,95 @@
     .hero h1 {
       font-size: 36px;
       color: #f8fafc;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .hero p.tagline {
       color: #c084fc;
       font-size: 18px;
-      font-weight: 500;
       margin-bottom: 20px;
     }
 
     /* Container */
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
 
-    /* Section Headings */
-    h2.section-title {
-      font-size: 22px;
-      color: #f8fafc;
-      border-left: 4px solid #a855f7;
-      padding-left: 10px;
-      margin: 40px 0 20px;
-    }
-
-    /* Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery-card {
-      background-color: #1e293b;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease;
-    }
-
-    .gallery-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card-content {
-      padding: 15px;
-    }
-
-    .card-content h3 {
-      font-size: 18px;
-      color: #f8fafc;
-      margin-bottom: 6px;
-    }
-
-    .card-content p {
-      font-size: 14px;
-      color: #94a3b8;
-    }
-
-    /* Audio / Stream Section */
-    .player-card {
-      background-color: #1e293b;
-      padding: 25px;
-      border-radius: 12px;
+    /* EP Announcement Card */
+    .ep-card {
+      background: linear-gradient(135deg, #2e1065 0%, #1e293b 100%);
+      border: 1px solid #7e22ce;
+      padding: 30px;
+      border-radius: 16px;
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .ep-badge {
+      background-color: #a855f7;
+      color: #0b0f19;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .ep-title {
+      font-size: 28px;
+      color: #ffffff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .ep-date {
+      font-size: 18px;
+      color: #38bdf8;
+      font-weight: 600;
       margin-bottom: 20px;
     }
 
-    .listen-btn {
+    .pre-save-btn {
       display: inline-block;
       background: linear-gradient(90deg, #9333ea, #a855f7);
-      color: white;
+      color: #ffffff;
       text-decoration: none;
-      padding: 12px 28px;
+      padding: 12px 30px;
       border-radius: 30px;
       font-weight: bold;
-      margin-top: 15px;
-      transition: opacity 0.2s;
+      font-size: 15px;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+      transition: transform 0.1s ease;
     }
 
-    .listen-btn:hover {
-      opacity: 0.9;
+    .pre-save-btn:active {
+      transform: scale(0.97);
     }
 
     /* Social Links */
     .links-grid {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin: 30px 0;
+      margin-top: 25px;
     }
 
     .social-link {
       background-color: #1e293b;
       color: #a855f7;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 8px;
       font-weight: bold;
+      font-size: 14px;
       border: 1px solid #334155;
-      transition: all 0.2s ease;
     }
 
     .social-link:hover {
@@ -157,72 +136,45 @@
 
     footer {
       text-align: center;
-      padding: 30px;
-      font-size: 14px;
+      padding: 40px 20px;
+      font-size: 13px;
       color: #64748b;
     }
   </style>
 </head>
 <body>
 
-  <!-- Artist Header -->
+  <!-- Hero / Artist Info -->
   <header class="hero">
-    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80" alt="Artist Profile" class="profile">
+    <!-- Replace artist.jpg with your uploaded image filename -->
+    <img src="artist.jpg" alt="Artist Profile Photo" class="profile">
     <h1>Mighty Hovah</h1>
-    <p class="tagline">Singer • Songwriter • Creative Producer</p>
-    
-    <div class="links-grid">
-      <a href="#" class="social-link">🎵 Spotify</a>
-      <a href="https://music.apple.com/ng/album/feelings-feat-zii-blaze-single/6781702668" class="social-link">🍎 Apple Music</a>
-      <a href="https://www.tiktok.com/@mightyhov?_r=1&_t=ZS-99M2w3MlIFF" class="social-link">【ꚠ】Tiktok</a>
-      <a href="https://youtube.com/channel/UCRXQy-nAMo-g1l1NqB2kT6A?si=n72v6YxwrIvsIqIR" class="social-link">📺 YouTube</a>
-    </div>
+    <p class="tagline">Official Music & Release Hub</p>
   </header>
 
   <div class="container">
 
-    <!-- Latest Release -->
-    <h2 class="section-title">Latest Release</h2>
-    <div class="player-card">
-      <h3>🔥 New Single: "Midnight Horizon"</h3>
-      <p style="color: #94a3b8; margin: 8px 0 15px;">Available now on all major streaming platforms worldwide.</p>
-      <a href="#" class="listen-btn">Stream Album Now 🎧</a>
+    <!-- Upcoming EP Section -->
+    <div class="ep-card">
+      <span class="ep-badge">Upcoming EP</span>
+      <div class="ep-title">"11:11 Make a wish"</div>
+      <div class="ep-date">🗓️ Dropping: November 20, 2026</div>
+      <a href="#" class="pre-save-btn">Pre-Save EP Now 🎵</a>
     </div>
 
-    <!-- Gallery / Discography -->
-    <h2 class="section-title">Featured Art & Releases</h2>
-    <div class="gallery-grid">
-      
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&q=80" alt="Album Cover">
-        <div class="card-content">
-          <h3>Neon Dreams EP</h3>
-          <p>Electronic beats fused with soulful acoustic layers.</p>
-        </div>
-      </div>
-
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&q=80" alt="Live Show">
-        <div class="card-content">
-          <h3>World Tour Live</h3>
-          <p>Highlights and photo captures from the summer arena run.</p>
-        </div>
-      </div>
-
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&q=80" alt="Studio Session">
-        <div class="card-content">
-          <h3>Studio Sessions</h3>
-          <p>Behind-the-scenes recording and mixing in Kaduna & London.</p>
-        </div>
-      </div>
-
+    <!-- Socials & Streaming -->
+    <div class="links-grid">
+      <a href="#" class="social-link">Spotify</a>
+      <a href="https://music.apple.com/ng/album/feelings-feat-zii-blaze-single/6781702668" class="social-link">Apple Music</a>
+      <a href="#" class="social-link">Audiomack</a>
+      <a href="" class="social-link">Tiktok</a>
+      <a href="https://youtube.com/channel/UCRXQy-nAMo-g1l1NqB2kT6A?si=n72v6YxwrIvsIqIR" class="social-link">YouTube</a>
     </div>
 
   </div>
 
   <footer>
-    <p>© 2026 Mighty Hovah. All rights reserved. Powered by GitHub Pages.</p>
+    <p>© 2026 All Rights Reserved.</p>
   </footer>
 
 </body>
