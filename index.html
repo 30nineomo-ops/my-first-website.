@@ -1,10 +1,139 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My First Website</title>
-  </head>
-  <body style="font-family: sans-serif; text-align: center; padding: 50px;">
-    <h1>Hello World! I am a Web Developer.</h1>
-    <p>This is my very first webpage hosted live on GitHub.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Developer Journey</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --subtext-color: #94a3b8;
+      --accent-color: #38bdf8;
+      --badge-bg: #334155;
+    }
+
+    .light-theme {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #0f172a;
+      --subtext-color: #64748b;
+      --accent-color: #0284c7;
+      --badge-bg: #e2e8f0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      padding: 35px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--subtext-color);
+      color: var(--text-color);
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      margin: 0 0 8px 0;
+      font-size: 26px;
+    }
+
+    p {
+      color: var(--subtext-color);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background-color: var(--badge-bg);
+      color: var(--accent-color);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .action-btn {
+      background-color: var(--accent-color);
+      color: #0f172a;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: transform 0.1s ease, filter 0.2s ease;
+    }
+
+    .action-btn:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ Switch Theme</button>
+    
+    <h1>Web Developer in the Making</h1>
+    <p>Building real projects step by step. Every expert was once a beginner who refused to quit.</p>
+    
+    <div class="badges">
+      <span class="badge">HTML5</span>
+      <span class="badge">CSS3</span>
+      <span class="badge">JavaScript</span>
+      <span class="badge">GitHub Pages</span>
+    </div>
+
+    <button class="action-btn" onclick="increaseCheer()">Cheer me on! 🚀</button>
+    <p id="counter" style="margin-top: 15px; font-weight: bold; color: var(--accent-color);">Cheers: 0</p>
+  </div>
+
+  <script>
+    let cheers = 0;
+    function increaseCheer() {
+      cheers = cheers + 1;
+      document.getElementById("counter").innerText = "Cheers: " + cheers;
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-theme");
+    }
+  </script>
+
+</body>
 </html>
