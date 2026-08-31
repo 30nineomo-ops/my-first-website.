@@ -3,111 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Developer Motivation</title>
+  <title>Artist Official Showcase</title>
   <style>
-    body {
-      background-color: #0f172a;
-      color: #f8fafc;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
+    * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .card {
-      background-color: #1e293b;
-      padding: 35px;
-      border-radius: 16px;
-      max-width: 480px;
-      width: 100%;
+    body {
+      background-color: #0b0f19;
+      color: #e2e8f0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      padding: 80px 20px 40px;
+      background: linear-gradient(180deg, #1e1b4b 0%, #0b0f19 100%);
     }
 
-    .tag {
-      color: #38bdf8;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
+    .hero img.profile {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #a855f7;
+      margin-bottom: 20px;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+
+    .hero p.tagline {
+      color: #c084fc;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Section Headings */
+    h2.section-title {
+      font-size: 22px;
+      color: #f8fafc;
+      border-left: 4px solid #a855f7;
+      padding-left: 10px;
+      margin: 40px 0 20px;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-card {
+      background-color: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
       display: block;
     }
 
-    blockquote {
-      font-size: 20px;
-      line-height: 1.6;
-      margin: 20px 0;
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #e2e8f0;
+    .card-content {
+      padding: 15px;
     }
 
-    button {
-      background-color: #38bdf8;
-      color: #0f172a;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
+    .card-content h3 {
+      font-size: 18px;
+      color: #f8fafc;
+      margin-bottom: 6px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    /* Audio / Stream Section */
+    .player-card {
+      background-color: #1e293b;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .listen-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #9333ea, #a855f7);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 30px;
       font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
+      margin-top: 15px;
       transition: opacity 0.2s;
     }
 
-    button:hover {
-      background-color: #0284c7;
-      color: #fff;
+    .listen-btn:hover {
+      opacity: 0.9;
     }
 
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+    /* Social Links */
+    .links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+
+    .social-link {
+      background-color: #1e293b;
+      color: #a855f7;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: 1px solid #334155;
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+      background-color: #a855f7;
+      color: #0b0f19;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <span class="tag" id="adviceId">ADVICE #...</span>
-    <blockquote id="adviceText">"Click the button to load your daily piece of wisdom."</blockquote>
-    <button id="fetchBtn" onclick="getNewAdvice()">Get Advice 💡</button>
+  <!-- Artist Header -->
+  <header class="hero">
+    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&q=80" alt="Artist Profile" class="profile">
+    <h1>KAY VIBES</h1>
+    <p class="tagline">Singer • Songwriter • Creative Producer</p>
+    
+    <div class="links-grid">
+      <a href="#" class="social-link">🎵 Spotify</a>
+      <a href="#" class="social-link">🍎 Apple Music</a>
+      <a href="#" class="social-link">📸 Instagram</a>
+      <a href="#" class="social-link">📺 YouTube</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Latest Release -->
+    <h2 class="section-title">Latest Release</h2>
+    <div class="player-card">
+      <h3>🔥 New Single: "Midnight Horizon"</h3>
+      <p style="color: #94a3b8; margin: 8px 0 15px;">Available now on all major streaming platforms worldwide.</p>
+      <a href="#" class="listen-btn">Stream Album Now 🎧</a>
+    </div>
+
+    <!-- Gallery / Discography -->
+    <h2 class="section-title">Featured Art & Releases</h2>
+    <div class="gallery-grid">
+      
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&q=80" alt="Album Cover">
+        <div class="card-content">
+          <h3>Neon Dreams EP</h3>
+          <p>Electronic beats fused with soulful acoustic layers.</p>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&q=80" alt="Live Show">
+        <div class="card-content">
+          <h3>World Tour Live</h3>
+          <p>Highlights and photo captures from the summer arena run.</p>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&q=80" alt="Studio Session">
+        <div class="card-content">
+          <h3>Studio Sessions</h3>
+          <p>Behind-the-scenes recording and mixing in Lagos & London.</p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
-  <script>
-    async function getNewAdvice() {
-      const adviceText = document.getElementById("adviceText");
-      const adviceId = document.getElementById("adviceId");
-      const button = document.getElementById("fetchBtn");
-
-      // Set loading state
-      adviceText.innerText = "Fetching wisdom from the web...";
-      button.disabled = true;
-
-      try {
-        // Fetch real-time data from an open API
-        const response = await fetch("https://api.adviceslip.com/advice");
-        const data = await response.json();
-
-        // Update the screen with server data
-        adviceId.innerText = `ADVICE #${data.slip.id}`;
-        adviceText.innerText = `"${data.slip.advice}"`;
-      } catch (error) {
-        adviceText.innerText = "Oops! Could not load advice. Check your internet connection.";
-      } finally {
-        button.disabled = false;
-      }
-    }
-
-    // Automatically load one piece of advice when page first opens
-    getNewAdvice();
-  </script>
+  <footer>
+    <p>© 2026 KAY VIBES. All rights reserved. Powered by GitHub Pages.</p>
+  </footer>
 
 </body>
 </html>
