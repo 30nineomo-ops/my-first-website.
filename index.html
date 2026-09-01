@@ -71,14 +71,14 @@
       font-weight: 500;
     }
 
-    /* Main Content Layout */
+    /* Main Container */
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
     }
 
-    /* Grid layout for Bio + EP */
+    /* Grid Layouts */
     .grid-duo {
       display: grid;
       grid-template-columns: 1fr;
@@ -150,7 +150,7 @@
       color: #38bdf8;
       font-weight: 700;
       letter-spacing: 1px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .pre-save-btn {
@@ -182,7 +182,7 @@
       align-items: center;
       gap: 4px;
       height: 24px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .sound-wave span {
@@ -204,37 +204,86 @@
       50% { transform: scaleY(1); opacity: 1; background: #38bdf8; }
     }
 
-    /* Video Section */
-    .video-section {
-      text-align: center;
+    /* Multi-Video Section */
+    .videos-section {
       margin-bottom: 35px;
     }
 
-    .video-section .badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 800;
+    .videos-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .videos-header h2 {
+      font-size: 20px;
       letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .videos-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .video-item {
+      background: rgba(10, 10, 15, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 10px 0 6px;
+    }
+
+    .badge-green {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
       color: #22c55e;
       background: rgba(34, 197, 94, 0.1);
       border: 1px solid rgba(34, 197, 94, 0.3);
-      padding: 5px 14px;
+      padding: 4px 10px;
       border-radius: 20px;
-      margin-bottom: 12px;
+    }
+
+    .badge-purple {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #c084fc;
+      background: rgba(192, 132, 252, 0.1);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      padding: 4px 10px;
+      border-radius: 20px;
     }
 
     .video-wrapper {
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
       background: #000;
-      margin: 18px 0;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      margin: 12px 0 6px;
     }
 
     .video-wrapper video {
       width: 100%;
-      max-height: 460px;
+      max-height: 280px;
       display: block;
       margin: 0 auto;
     }
@@ -295,9 +344,7 @@
       <div class="card">
         <h2>Biography</h2>
         <p>
-Mighty Hovah is a rising artist from Kaduna who began singing at the age of 9, developing a passion for music that has continued to shape his journey.
-          
-          
+          Mighty Hovah is an artist crafting a distinct lane through soulful rhythms, infectious melodies, and authentic lyricism.
         </p>
         <p style="color: #94a3b8; font-size: 14px;">
           Bringing raw energy to every studio cut and stage, his sound merges high-impact contemporary sonics with deep, relatable storytelling.
@@ -307,7 +354,7 @@ Mighty Hovah is a rising artist from Kaduna who began singing at the age of 9, d
       <div class="card ep-container">
         <h2>Next Project</h2>
         <div class="ep-title">"11:11 Make a wish"</div>
-        <div class="ep-date">🗓️ On The Way • 2026</div>
+        <div class="ep-date">🗓️ Dropping: November 20, 2026</div>
 
         <div class="sound-wave">
           <span></span>
@@ -322,18 +369,38 @@ Mighty Hovah is a rising artist from Kaduna who began singing at the age of 9, d
 
     </div>
 
-    <div class="card video-section">
-      <span class="badge">Featured Release</span>
-      <h3 style="font-size: 22px; color: #fff; font-weight: 800;">"Feelings" (feat. Zii Blaze)</h3>
-      
-      <div class="video-wrapper">
-        <video controls>
-          <source src="music-video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <div class="card videos-section">
+      <div class="videos-header">
+        <h2>🎬 Official Visuals</h2>
       </div>
 
-      <p style="color: #94a3b8; font-size: 14px;">Official music video streaming worldwide.</p>
+      <div class="videos-grid">
+        
+        <div class="video-item">
+          <span class="badge-green">OUT NOW</span>
+          <h3>"Feelings" (feat. Zii Blaze)</h3>
+          <div class="video-wrapper">
+            <video controls playsinline>
+              <source src="music-video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p style="color: #94a3b8; font-size: 13px;">Official Music Video</p>
+        </div>
+
+        <div class="video-item">
+          <span class="badge-purple">FEATURED VISUAL</span>
+          <h3>Latest Session / Visual</h3>
+          <div class="video-wrapper">
+            <video controls playsinline>
+              <source src="music-video2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p style="color: #94a3b8; font-size: 13px;">Exclusive Performance & Visuals</p>
+        </div>
+
+      </div>
     </div>
 
     <div class="links-grid">
