@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mighty Hovah - Official Showcase</title>
+  <title>MIGHTY HOVAH | Official Artist Hub</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,276 +12,317 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #1e1035 0%, #080a10 70%);
+      background-color: #08080c;
       color: #e2e8f0;
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Hero Section */
-    .hero {
+    /* Cinematic Hero Banner */
+    .hero-banner {
+      position: relative;
+      height: 480px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 40px 20px;
       text-align: center;
-      width: 100%;
-      margin: 0 auto;
-      padding: 60px 20px 20px;
+      background: linear-gradient(180deg, rgba(8, 8, 12, 0.2) 0%, rgba(8, 8, 12, 0.8) 70%, #08080c 100%), 
+                  url('profile.jpg') center top / cover no-repeat;
     }
 
-    .hero img.profile {
-      display: block;
-      margin: 0 auto 20px auto;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #a855f7;
-      animation: pulseGlow 3s infinite alternate ease-in-out;
-    }
-
-    @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 15px rgba(168, 85, 247, 0.4), 0 0 30px rgba(168, 85, 247, 0.2);
-        transform: scale(1);
-      }
-      100% {
-        box-shadow: 0 0 35px rgba(168, 85, 247, 0.8), 0 0 60px rgba(168, 85, 247, 0.4);
-        transform: scale(1.03);
-      }
-    }
-
-    .hero h1 {
-      font-size: 38px;
-      color: #ffffff;
-      margin-bottom: 6px;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 10px rgba(168, 85, 247, 0.4);
-    }
-
-    .hero p.tagline {
-      color: #c084fc;
-      font-size: 17px;
-      margin-bottom: 20px;
-      letter-spacing: 0.5px;
-    }
-
-    /* Container */
-    .container {
+    .hero-content {
       max-width: 800px;
+      z-index: 2;
+    }
+
+    .artist-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c084fc;
+      background: rgba(192, 132, 252, 0.12);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-content h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-content p.tagline {
+      font-size: 16px;
+      color: #94a3b8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Main Content Layout */
+    .container {
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
     }
 
-    /* Glassmorphism Cards */
-    .bio-card, .ep-card, .video-card {
-      background: rgba(30, 41, 59, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(168, 85, 247, 0.25);
+    /* Grid layout for Bio + EP */
+    .grid-duo {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-duo {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    /* Glass Cards */
+    .card {
+      background: rgba(18, 18, 26, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
       padding: 30px;
-      margin-bottom: 35px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      transition: border-color 0.3s ease, transform 0.3s ease;
     }
 
-    .bio-card {
-      text-align: left;
+    .card:hover {
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: translateY(-4px);
     }
 
-    .ep-card, .video-card {
-      text-align: center;
-    }
-
-    .bio-card:hover, .ep-card:hover, .video-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(168, 85, 247, 0.6);
-      box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
-    }
-
-    .ep-badge {
-      background: linear-gradient(90deg, #a855f7, #ec4899);
-      color: #ffffff;
-      font-size: 11px;
+    .card h2 {
+      font-size: 14px;
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 20px;
-      display: inline-block;
+      color: #a855f7;
       margin-bottom: 15px;
     }
 
+    .card p {
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* EP Feature */
+    .ep-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     .ep-title {
-      font-size: 30px;
+      font-size: 28px;
+      font-weight: 900;
       color: #ffffff;
-      font-weight: bold;
-      margin-bottom: 8px;
+      margin: 10px 0 6px;
     }
 
     .ep-date {
-      font-size: 16px;
+      font-size: 14px;
       color: #38bdf8;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    /* Audio Waves Animation */
-    .sound-wave {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      height: 30px;
-      margin-bottom: 20px;
-    }
-
-    .sound-wave span {
-      display: inline-block;
-      width: 4px;
-      background: #a855f7;
-      border-radius: 4px;
-      animation: wave 1.2s infinite ease-in-out;
-    }
-
-    .sound-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
-    .sound-wave span:nth-child(2) { height: 24px; animation-delay: 0.3s; }
-    .sound-wave span:nth-child(3) { height: 16px; animation-delay: 0.2s; }
-    .sound-wave span:nth-child(4) { height: 28px; animation-delay: 0.4s; }
-    .sound-wave span:nth-child(5) { height: 12px; animation-delay: 0.15s; }
-
-    @keyframes wave {
-      0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
-      50% { transform: scaleY(1); opacity: 1; background: #38bdf8; }
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
     }
 
     .pre-save-btn {
       display: inline-block;
-      background: linear-gradient(90deg, #9333ea, #a855f7);
+      width: 100%;
+      max-width: 260px;
+      background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
       color: #ffffff;
       text-decoration: none;
-      padding: 14px 34px;
+      padding: 14px 24px;
       border-radius: 30px;
-      font-weight: bold;
-      font-size: 15px;
-      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .pre-save-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(168, 85, 247, 0.6);
+      opacity: 0.95;
+      transform: scale(1.02);
     }
 
-    .video-badge {
-      background: #22c55e;
-      color: #0f172a;
+    /* Soundwave Graphic */
+    .sound-wave {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      height: 24px;
+      margin-bottom: 18px;
+    }
+
+    .sound-wave span {
+      display: inline-block;
+      width: 3px;
+      background: #a855f7;
+      border-radius: 3px;
+      animation: wave 1.2s infinite ease-in-out;
+    }
+
+    .sound-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+    .sound-wave span:nth-child(2) { height: 22px; animation-delay: 0.3s; }
+    .sound-wave span:nth-child(3) { height: 14px; animation-delay: 0.2s; }
+    .sound-wave span:nth-child(4) { height: 26px; animation-delay: 0.4s; }
+    .sound-wave span:nth-child(5) { height: 10px; animation-delay: 0.15s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+      50% { transform: scaleY(1); opacity: 1; background: #38bdf8; }
+    }
+
+    /* Video Section */
+    .video-section {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .video-section .badge {
+      display: inline-block;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 2px;
-      text-transform: uppercase;
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
       padding: 5px 14px;
       border-radius: 20px;
-      display: inline-block;
       margin-bottom: 12px;
     }
 
     .video-wrapper {
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
       background: #000;
       margin: 18px 0;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     }
 
     .video-wrapper video {
       width: 100%;
-      max-height: 420px;
+      max-height: 460px;
       display: block;
       margin: 0 auto;
     }
 
-    /* Social Links */
+    /* Links Bar */
     .links-grid {
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
-      margin: 30px 0 10px;
+      margin: 20px 0 40px;
     }
 
     .social-link {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.04);
       color: #f8fafc;
       text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.25s ease;
     }
 
     .social-link:hover {
-      background: #a855f7;
-      color: #0b0f19;
+      background: #ffffff;
+      color: #08080c;
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
-      border-color: #a855f7;
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
-      font-size: 13px;
-      color: #64748b;
+      padding: 30px 20px 50px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: #475569;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <img src="profile.jpg" alt="Mighty Hovah" class="profile">
-    <h1>Mighty Hovah</h1>
-    <p class="tagline">Official Music & Release Hub</p>
+  <header class="hero-banner">
+    <div class="hero-content">
+      <span class="artist-badge">Official Artist Hub</span>
+      <h1>Mighty Hovah</h1>
+      <p class="tagline">Music • Visuals • Releases</p>
+    </div>
   </header>
 
   <div class="container">
 
-    <!-- About / Bio Section -->
-    <div class="bio-card">
-      <h2 style="font-size: 20px; color: #c084fc; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;">About Mighty Hovah</h2>
-      <p style="color: #cbd5e1; font-size: 15px; line-height: 1.7; margin-bottom: 10px;">
-        Mighty Hovah is an emerging artist delivering a unique blend of soulful rhythms, infectious melodies, and authentic storytelling. Bringing raw energy and passion to every release, each track connects deeply with listeners worldwide.
-      </p>
-      <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">
-        With the highly anticipated EP <strong style="color: #f8fafc;">"11:11 Make a wish"</strong> on the way, Mighty Hovah continues to push creative boundaries and carve out a distinct lane in the music landscape.
-      </p>
-    </div>
-
-    <!-- Upcoming EP Card -->
-    <div class="ep-card">
-      <span class="ep-badge">Upcoming EP</span>
-      <div class="ep-title">"11:11 Make a wish"</div>
-      <div class="ep-date">🗓️ On The Way, 2026</div>
+    <div class="grid-duo">
       
-      <!-- Audio Waves Graphic -->
-      <div class="sound-wave">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="card">
+        <h2>Biography</h2>
+        <p>
+          Mighty Hovah is an artist crafting a distinct lane through soulful rhythms, infectious melodies, and authentic lyricism.
+        </p>
+        <p style="color: #94a3b8; font-size: 14px;">
+          Bringing raw energy to every studio cut and stage, his sound merges high-impact contemporary sonics with deep, relatable storytelling.
+        </p>
       </div>
 
-      <a href="#" class="pre-save-btn">Pre-Save EP Now 🎵</a>
+      <div class="card ep-container">
+        <h2>Next Project</h2>
+        <div class="ep-title">"11:11 Make a wish"</div>
+        <div class="ep-date">🗓️ On The Way • 2026</div>
+
+        <div class="sound-wave">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <a href="#" class="pre-save-btn">Pre-Save Project</a>
+      </div>
+
     </div>
 
-    <!-- Featured Video Card -->
-    <div class="video-card">
-      <span class="video-badge">OUT NOW</span>
-      <h3 style="font-size: 22px; color: #fff; margin-top: 4px;">🎬 "Feelings" (feat. Zii Blaze)</h3>
+    <div class="card video-section">
+      <span class="badge">Featured Release</span>
+      <h3 style="font-size: 22px; color: #fff; font-weight: 800;">"Feelings" (feat. Zii Blaze)</h3>
       
       <div class="video-wrapper">
         <video controls>
@@ -290,16 +331,15 @@
         </video>
       </div>
 
-      <p style="color: #94a3b8; font-size: 14px;">Watch the official video streaming now.</p>
+      <p style="color: #94a3b8; font-size: 14px;">Official music video streaming worldwide.</p>
     </div>
 
-    <!-- Streaming / Social Links -->
     <div class="links-grid">
       <a href="#" class="social-link">Spotify</a>
-      <a href="https://music.apple.com/ng/album/feelings-feat-zii-blaze-single/6781702668" class="social-link">Apple Music</a>
+      <a href="https://music.apple.com/ng/album/feelings-feat-zii-blaze-single/6781702668" class="social-link" target="_blank">Apple Music</a>
       <a href="#" class="social-link">Audiomack</a>
-      <a href="https://www.tiktok.com/@mightyhov?_r=1&_t=ZS-99M2w3MlIFF" class="social-link">TikTok</a>
-      <a href="https://youtube.com/channel/UCRXQy-nAMo-g1l1NqB2kT6A?si=n72v6YxwrIvsIqIR" class="social-link">YouTube</a>
+      <a href="https://www.tiktok.com/@mightyhov?_r=1&_t=ZS-99M2w3MlIFF" class="social-link" target="_blank">TikTok</a>
+      <a href="https://youtube.com/channel/UCRXQy-nAMo-g1l1NqB2kT6A?si=n72v6YxwrIvsIqIR" class="social-link" target="_blank">YouTube</a>
     </div>
 
   </div>
